@@ -1,3 +1,118 @@
+
+/*Colors*/
+$brand-primary: #afaf95;
+$brand-secondary: #d0d1a9;
+$brand-three: #ffffff;
+$brand-four: #408353;
+$brand-five: '';
+$brand-six: '';
+$brand-seven: '';
+
+$success: '';
+$warning: '';
+$error: '';
+
+$font-color-primary: #4a4a4a;
+$font-color-secondary: #ffffff;
+$font-color-tertiary: #6b7c93;
+
+$bg-overlay: rgba(74, 74, 74, 0.4);
+
+$font-size: 14;
+
+$font-primary: 'Avenir Book', arial, sans-serif;
+$font-secondary: 'Avenir Heavy', arial, sans-serif;
+$font-tertiary: '', arial, sans-serif;
+
+$font-light: 300;
+$font-reg: 400;
+$font-bold: 700;
+
+/*Media Query functions */
+$xs-screen: 480px;
+$sm-screen: 767px;
+$md-screen: 991px;
+$lg-screen: 1024px;
+
+@mixin xs {
+  @media (min-width: #{$xs-screen}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{$lg-screen}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$xs-screen}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$lg-screen}) {
+    @content;
+  }
+}
+
+@function decimal-round ($number, $digits: 0, $mode: round) {
+	$n: 1;
+	// $number must be a number
+	@if type-of($number) != number {
+		@warn '#{ $number } is not a number.';
+		@return $number;
+	}
+	// $digits must be a unitless number
+	@if type-of($digits) != number {
+		@warn '#{ $digits } is not a number.';
+		@return $number;
+	} @else if not unitless($digits) {
+		@warn '#{ $digits } has a unit.';
+		@return $number;
+	}
+	@for $i from 1 through $digits {
+		$n: $n * 10;
+	}
+	@if $mode == round {
+		@return round($number * $n) / $n;
+	} @else if $mode == ceil {
+		@return ceil($number * $n) / $n;
+	} @else if $mode == floor {
+		@return floor($number * $n) / $n;
+	} @else {
+		@warn '#{ $mode } is undefined keyword.';
+		@return $number;
+	}
+}
+//use the above function set line height relative rather than as a specific px value.
+@mixin font-size($sizeValue: 14, $lineHeight: null) {
+	font-size: $sizeValue + px;
+	font-size: ($sizeValue / 10) + rem;
+	@if ($lineHeight) {
+		//line height is now always relative
+		line-height: (decimal-round($lineHeight / $sizeValue, 3));
+	} @else {
+		line-height: 1.2;
+	}
+}
+/*Padding and Margin for REM with PX fallback*/
+@mixin addREM($property, $values...) {
+	$px: ();
+	$rem: ();
+	@each $value in $values {
+		@if $value == 0 or $value == auto {
+			$px: append($px, $value);
+			$rem: append($rem, $value);
+		} @else {
+			$px: append($px,  ($value + px));
+			$rem: append($rem,  ($value / 10 + rem));
+		}
+	}
+	#{$property}: $px;
+	#{$property}: $rem;
+}
+
+
 @font-face {
   font-family: 'Avenir Book';
   src: url('/static/fonts/avenir/710789a0-1557-48a1-8cec-03d52d663d74.eot?#iefix');
@@ -16,3 +131,138 @@
     url('/static/fonts/avenir/ccd17c6b-e7ed-4b73-b0d2-76712a4ef46b.ttf') format('truetype'),
     url('/static/fonts/avenir/20577853-40a7-4ada-a3fb-dd6e9392f401.svg#20577853-40a7-4ada-a3fb-dd6e9392f401') format('svg');
 }
+
+html {
+  font-family: $font-primary;
+  font-weight: $font-light;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @include font-size(14, 18);
+  font-weight: 300;
+  color: $font-color-primary;
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+strong {
+  font-weight: 700;
+}
+
+h1 {
+  @include font-size(32, 44);
+  font-family: $font-secondary;
+}
+
+h2 {
+  @include font-size(30, 39);
+  font-family: $font-secondary;
+}
+
+h3 {
+  @include font-size(26, 39);
+  font-family: $font-secondary;
+}
+
+h4 {
+  @include font-size(20, 27);
+  font-family: $font-secondary;
+}
+
+h5 {
+  @include font-size(16, 24);
+  font-family: $font-secondary;
+}
+
+h6 {
+  @include font-size(14, 24);
+  font-family: $font-secondary;
+}
+
+p,
+li {
+  @include font-size(14, 24);
+}
+
+a {
+  @include font-size(14, 24);
+}
+
+@media (max-width: 767px) {
+  h1 {
+    @include font-size(24, 34);
+    font-family: $font-secondary;
+  }
+  h2 {
+    @include font-size(22, 30);
+    font-family: $font-secondary;
+  }
+  h3 {
+    @include font-size(20, 26);
+    font-family: $font-secondary;
+  }
+  h4 {
+    @include font-size(18, 24);
+    font-family: $font-secondary;
+  }
+  h5 {
+    @include font-size(16, 24);
+    font-family: $font-secondary;
+  }
+  h6 {
+    @include font-size(14, 24);
+    font-family: $font-secondary;
+  }
+  p,
+  li {
+    @include font-size(14, 24);
+  }
+  a {
+    @include font-size(14, 24);
+  }
+}
+
+a {
+  color: $font-color-primary;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $font-color-primary;
+  }
+}
+
+.wysiwyg {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include addREM(margin-bottom, 15);
+  }
+  p,
+  li {
+    @include addREM(margin-bottom, 10);
+	}
+	h3 {
+		font-family: 'Avenir Heavy', arial, sans-serif;
+		@include font-size(26, 39);
+	}
+	h5 {
+		@include font-size(16, 24);
+	}
+}
+
+@import '_slick'

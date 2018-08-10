@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import { BannerStyled, BannerHeadline } from './Banner.styles';
+import { BannerStyled } from './Banner.styles';
 
 type Props = {
   children: React.Node,
@@ -10,7 +10,8 @@ type Props = {
 
 const Banner = ({ children, img }: Props) => (
   <BannerStyled img={img}>
-    <BannerHeadline>{children}</BannerHeadline>
+    {children}
+    {/* <BannerHeadline>{children}</BannerHeadline> */}
   </BannerStyled>
 );
 

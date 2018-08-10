@@ -1,4 +1,5 @@
 import styled, { type ReactComponentStyled } from 'styled-components';
+import { addRem } from '../global/HelperFunctions';
 
 type Props = {
   img: string,
@@ -12,9 +13,11 @@ export const BannerStyled: ReactComponentStyled<Props> = styled.section`
   background-position: 50%;
   height: 95vh;
   max-height: 670px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  ${addRem('padding-top', 114)};
+  @media (max-width: 767px) {
+    ${addRem('padding-top', 84)};
+}
   &:before {
     content: "";
     position: absolute;

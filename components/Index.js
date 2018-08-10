@@ -1,1 +1,12 @@
 // export Header from './Header/Header';
+export { default as Banner } from './banner/Banner';
+export { default as Button } from './button/Button';
+export { Container, Row, Column } from './grid/Grid.styles';
+export { default as Header } from './header/Header';
+export { default as Markup } from './markup/Markup';
+export { default as SearchForm } from './searchForm/SearchForm';
+export { default as Section } from './section/Section';
+export { default as Spacer } from './spacer/Spacer';
+export { default as Icon } from './icon/Icon';
+export { default as DownArrow } from './downArrow/DownArrow';
+export { default as CallToAction } from './callToAction/CallToAction';

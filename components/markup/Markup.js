@@ -8,8 +8,6 @@ type Props = {
   data: string,
 };
 
-const Markup = ({ data }: Props) => (
-  <article className="constrained-to-500" dangerouslySetInnerHTML={renderHTML(data)} />
-);
+const Markup = ({ data }: Props) => <article dangerouslySetInnerHTML={renderHTML(data)} />;
 
 export default Markup;

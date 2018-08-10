@@ -7,7 +7,16 @@ export const Container = styled.div`
   margin-right: auto;
   ${addRem('padding-left', 15)};
   ${addRem('padding-right', 15)};
-  width: ${props => (props.fluid ? '100%' : '1190px')};
+
+  @media (min-width: 768px) {
+    width: ${props => !props.fluid && '750px'};
+  }
+  @media (min-width: 992px) {
+    width: ${props => !props.fluid && ' 970px;'};
+  }
+  @media (min-width: 1200px) {
+    width: ${props => (props.fluid ? '100%' : '1170px')};
+  }
 
   &:before {
     content: ' ';
@@ -40,13 +49,13 @@ export const Row = styled.div`
 export const Column = styled.div`
   ${addRem('padding-left', 15)};
   ${addRem('padding-right', 15)};
-  float: left;
-  position: relative;
+
   min-height: 1px;
-  ${props => (props.xs ? `width: ${gridWidthHelper(props.xs)}` : null)}
-  ${props => (props.xsPush ? `left: ${gridWidthHelper(props.xsPush)}` : null)}
-  ${props => (props.xsPull ? `right: ${gridWidthHelper(props.xsPull)}` : null)}
-  ${props => (props.xsOffset ? `margin-left: ${gridWidthHelper(props.xsOffset)}` : null)}
+  ${props => (props.xs ? `width: ${gridWidthHelper(props.xs)};   float: left;` : null)}
+  ${props => (props.xsPush ? `left: ${gridWidthHelper(props.xsPush)};   float: left;` : null)}
+  ${props => (props.xsPull ? `right: ${gridWidthHelper(props.xsPull)};  float: left;` : null)}
+  ${props =>
+    props.xsOffset ? `margin-left: ${gridWidthHelper(props.xsOffset)};  float: left;` : null}
   ${props =>
     props.sm
       ? `
@@ -78,35 +87,35 @@ export const Column = styled.div`
   ${props =>
     props.md
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
           width: ${gridWidthHelper(props.md)}
         }`
       : null}
   ${props =>
     props.mdPush
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
           left: ${gridWidthHelper(props.mdPush)}
         }`
       : null}
   ${props =>
     props.mdPull
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
           right: ${gridWidthHelper(props.mdPull)}
         }`
       : null}
   ${props =>
     props.mdOffset
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
           margin-left: ${gridWidthHelper(props.mdOffset)}
         }`
       : null}
   ${props =>
     props.lg
       ? `
-          @media (min-width: 768px) {
+          @media (min-width: 1200px) {
             width: ${gridWidthHelper(props.lg)}
           }`
       : null}
@@ -114,21 +123,21 @@ export const Column = styled.div`
   ${props =>
     props.lgPush
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
           left: ${gridWidthHelper(props.lgPush)}
         }`
       : null}
   ${props =>
     props.lgPull
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
           right: ${gridWidthHelper(props.lgPull)}
         }`
       : null}
   ${props =>
     props.lgOffset
       ? `
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
           margin-left: ${gridWidthHelper(props.lgOffset)}
         }`
       : null}

@@ -1,13 +1,13 @@
-import { injectGlobal, type ReactComponentStyled } from 'styled-components';
+import { injectGlobal } from 'styled-components';
 import Link from 'next/link';
 // import {  } from 'styled-bootstrap-components';
 // @flow strict
 import * as React from 'react';
-import { Container, Row, Column } from '../Grid/Grid.styles';
-import { HeaderPrimary, HeaderScrolled, Nav, NavBtn, NavCloseBtn, Title } from './Header.styles';
-import Flex from '../Helpers/Flex.styles';
+import { Container, Row, Column } from '../grid/Grid.styles';
+import { HeaderPrimary, HeaderScrolled, Nav, NavBtn, NavCloseBtn } from './Header.styles';
+import Flex from '../helpers/Flex.styles';
 import { H5 } from '../global/Global.styles';
-import SearchForm from '../SearchForm/SearchForm';
+import SearchForm from '../searchForm/SearchForm';
 import theme from '../global/ThemeVariables';
 
 type Props = {||};
@@ -71,15 +71,14 @@ class Header extends React.Component<Props, State> {
                   <a href="/">
                     <Flex align="center" justify="center">
                       <img
-                        style={{ maxWidth: '54px' }}
-                        src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/logo-white.png"
+                        style={{ maxWidth: '120px' }}
+                        src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/abbeymill-logo-white.png"
                         alt="test"
                       />
                       {/*
                   <img style="max-width: 54px;" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-lg.png" alt="<?php bloginfo('name'); ?>">
                   <img style="max-width: 54px;" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-dark.png" alt="<?php bloginfo('name'); ?>">
                 */}
-                      <Title>Abbeymill Homes</Title>
                     </Flex>
                   </a>
                 </Column>

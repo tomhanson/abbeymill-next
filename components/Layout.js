@@ -1,4 +1,4 @@
-import Header from './Header/Header';
+import Header from './header/Header';
 
 type Props = {
   children: string,

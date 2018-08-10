@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
+import Slider from 'react-slick';
 import gql from 'graphql-tag';
 import Layout from '../components/Layout';
-import { Container, Column, Row } from '../components/Grid/Grid.styles';
-import Button from '../components/button/Button';
-import Banner from '../components/banner/Banner';
+
 import { H1 } from '../components/global/Global.styles';
+import Flex from '../components/helpers/Flex.styles';
+import {
+  Container,
+  Column,
+  Row,
+  Banner,
+  Section,
+  Spacer,
+  Icon,
+  DownArrow,
+  CallToAction,
+} from '../components/index';
 
 import '../components/css/base.scss';
 
@@ -21,7 +32,7 @@ type homeProps = {
 };
 
 type Home = {
-  home: [homeProps],
+  home: homeProps,
 };
 
 type Props = {
@@ -36,20 +47,32 @@ type State = {};
 const HOME_QUERY: string = gql`
   query home {
     pages(page: "home") {
-      home {
+      ... on Home {
         bannerHeadline
         testimonialsSubheadline
         testimonialsHeadline
         bottomContentHeadline
         bottomContentSubheadline
+        contentImage(size: large) {
+          width
+          height
+          width
+          url
+        }
         topContent
         bannerVideo
         bannerHeadline
-        bannerImage {
-          propertyTileMd {
+        bannerImage(size: bgLg) {
+          width
+          height
+          url
+        }
+        sliderProperties {
+          title
+          mainPhoto(size: propertyTileSm) {
+            url
             width
             height
-            url
           }
         }
       }
@@ -58,6 +81,11 @@ const HOME_QUERY: string = gql`
 `;
 
 class Index extends Component<EmptyProps, State> {
+  settings = {
+    centerMode: true,
+    centerPadding: '50px',
+    slidesToShow: 1,
+  };
   test() {
     console.log(this);
   }
@@ -68,56 +96,72 @@ class Index extends Component<EmptyProps, State> {
           {({ loading, error, data }: Props) => {
             if (loading) return 'Loading...';
             if (error) return `Error! ${error.message}`;
-            const { home } = data.pages;
+            const {
+              bannerImage,
+              bannerHeadline,
+              topContent,
+              sliderProperties,
+              bottomContentHeadline,
+              bottomContentSubheadline,
+              contentImage,
+            } = data.pages;
+
             return (
               <div>
-                <Banner img={home.bannerImage.propertyTileMd.url}>
-                  <Container>
-                    <Row>
-                      <Column xs={12}>
-                        <H1 secondary>{home.bannerHeadline}</H1>
-                        <div
-                          className="spacing-sm--top-only | play-icon"
-                          data-toggle="modal"
-                          data-target="#videoModal"
-                        >
-                          <img src="../../../assets/play-icon.svg" alt="Play Video" />
-                        </div>
-
-                        <Button primary>View all properties</Button>
-                      </Column>
-                    </Row>
-                  </Container>
+                <Banner img={bannerImage.url}>
+                  <Flex align="center" justify="center">
+                    <Container>
+                      <Row>
+                        <Column xs={12}>
+                          <H1 secondary>{bannerHeadline}</H1>
+                          <div
+                            className="spacing-sm--top-only | play-icon"
+                            data-toggle="modal"
+                            data-target="#videoModal"
+                          >
+                            <Spacer paddingTop={20}>
+                              <Icon
+                                src="/static/assets/play-icon.svg"
+                                alt="Play Video"
+                                maxWidth={50}
+                              />
+                            </Spacer>
+                          </div>
+                        </Column>
+                      </Row>
+                    </Container>
+                  </Flex>
+                  <DownArrow id="js-home-scroll" className="down-arrow">
+                    <Icon src="/static/assets/down-arrow.svg" alt="Scroll Down" maxWidth={40} />
+                    {/* <img src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/icons/down-arrow.svg" alt="Scroll Down"> */}
+                  </DownArrow>
                 </Banner>
-                <section
-                  id="section:content-block"
-                  className="spacing-lg | content-block content-block--secondary"
-                >
+                <Section paddingTop={65} paddingBottom={65}>
                   <Container>
                     <Row>
                       <Column md={10} mdOffset={1}>
-                        <div
-                          className="wysiwyg"
-                          dangerouslySetInnerHTML={{ __html: home.topContent }}
-                        />
+                        <div className="wysiwyg" dangerouslySetInnerHTML={{ __html: topContent }} />
                       </Column>
                     </Row>
                   </Container>
-                </section>
+                </Section>
                 <section id="section:slider" className="slider slider--primary">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-xs-12">
+                  <Container>
+                    <Row>
+                      <Column xs={12}>
                         <ul className="home-slider">
-                          {}
-                          {/* <?php while( have_rows('home_properties') ) : the_row(); ?>
-          <?php
-                            $post_object = get_sub_field('property');
-                              // override $post
-                              $post = $post_object;
-                              setup_postdata( $post );
-                
-                              ?> */}
+                          slider
+                          <Slider {...this.settings}>
+                            {sliderProperties.map(({ mainPhoto, title }) => (
+                              <img
+                                key={mainPhoto.url}
+                                src={mainPhoto.url}
+                                alt={title}
+                                height={mainPhoto.height}
+                                width={mainPhoto.width}
+                              />
+                            ))}
+                          </Slider>
                           <li>
                             {/* <?php get_template_part('templates/content', 'tile-primary'); ?> */}
                           </li>
@@ -128,10 +172,15 @@ class Index extends Component<EmptyProps, State> {
                             View all properties
                           </a>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </Column>
+                    </Row>
+                  </Container>
                 </section>
+                <CallToAction
+                  image={contentImage}
+                  headline={bottomContentHeadline}
+                  subHeadline={bottomContentSubheadline}
+                />
               </div>
             );
           }}
@@ -143,29 +192,29 @@ class Index extends Component<EmptyProps, State> {
 export default Index;
 
 /* <section id="section:slider" class="slider slider--primary">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <ul class="home-slider">
-          <?php while( have_rows('home_properties') ) : the_row(); ?>
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12">
+                  <ul class="home-slider">
+                    <?php while( have_rows('home_properties') ) : the_row(); ?>
           <?php
-            $post_object = get_sub_field('property');
-              // override $post
-              $post = $post_object;
-              setup_postdata( $post ); 
-
-              ?>
+                      $post_object = get_sub_field('property');
+                        // override $post
+                        $post = $post_object;
+                        setup_postdata( $post );
+          
+                        ?>
             <li>
-              <?php get_template_part('templates/content', 'tile-primary'); ?>
+                      <?php get_template_part('templates/content', 'tile-primary'); ?>
             </li>
-            <?php wp_reset_postdata(); endwhile; ?>
+                    <?php wp_reset_postdata(); endwhile; ?>
         </ul>
-        <div class="text-center | spacing-md--top-only spacing-lg--btm-only">
-          <a href="/our-properties" class="btn btn--primary">
-            View all properties
+                  <div class="text-center | spacing-md--top-only spacing-lg--btm-only">
+                    <a href="/our-properties" class="btn btn--primary">
+                      View all properties
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> */
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> */

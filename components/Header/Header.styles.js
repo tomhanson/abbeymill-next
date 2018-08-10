@@ -37,6 +37,7 @@ export const Nav: ReactStyledComponent = styled.nav`
   bottom: 0;
   z-index: 99;
   a {
+    text-decoration: none;
     font-size: 20px;
     line-height: 1.2;
     ${addRem('padding', 10)};

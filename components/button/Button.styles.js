@@ -70,16 +70,18 @@ export const StyledLink: StyledReactComponent = styled.a`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  line-height: 1.428571429;
+  line-height: 1.428571429 !important;
   border-radius: 4px;
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  ${fontSize(14)};
+  text-decoration: none;
+  ${'' /* ${fontSize(14, 19)}; */} font-size: 14px;
   ${addRem('padding', 10)};
   color: ${theme.fontColorSecondary};
   -webkit-appearance: none;
-  ${props => (props.secondary ? `border: 1px solid ${theme.brandThree}` : `border: none;`)};
+  ${props =>
+    props.secondary ? `border: 1px solid ${theme.brandThree}` : `border: 1px solid transparent;`};
   ${props =>
     props.primary
       ? `  
