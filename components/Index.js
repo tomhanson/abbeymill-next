@@ -10,3 +10,4 @@ export { default as Spacer } from './spacer/Spacer';
 export { default as Icon } from './icon/Icon';
 export { default as DownArrow } from './downArrow/DownArrow';
 export { default as CallToAction } from './callToAction/CallToAction';
+export { default as ContentTile } from './content-tile/ContentTile';

@@ -16,10 +16,9 @@ type Props = {
   subHeadline: string,
 };
 
-function CallToAction({ image, headline, subHeadline }) {
-  console.log(image);
+function CallToAction({ image, headline, subHeadline }: Props) {
   return (
-    <Cta id="section:cta" className="primary-brand-bg | cta cta--primary">
+    <Cta>
       <div className="max-width-wrapper">
         <Container>
           <Row>
@@ -27,13 +26,7 @@ function CallToAction({ image, headline, subHeadline }) {
             <Column md={6}>
               <CtaGridOverride image={image} />
             </Column>
-            <Column
-              md={6}
-              mdOffset={6}
-              lg={5}
-              lgOffset={7}
-              className="col-md-6 col-md-offset-6 col-lg-5 col-lg-offset-7 | cta__content"
-            >
+            <Column md={6} mdOffset={6} lg={5} lgOffset={7}>
               <CtaContent>
                 <H2 marginBottom={15}>{headline}</H2>
                 <H5 marginBottom={15} secondary>

@@ -3,9 +3,9 @@ import * as React from 'react';
 import { StyledButton, StyledLink } from './Button.styles';
 
 type Props = {
-  primary: boolean,
-  secondary: boolean,
-  href: string,
+  primary: ?boolean,
+  secondary: ?boolean,
+  href: ?string,
   children: React.Node,
 };
 

@@ -17,6 +17,8 @@ const theme = {
 
   bgOverlay: 'rgba(74, 74, 74, 0.4)',
 
+  whiteBgOverlay: 'rgba(255, 255, 255, 0.95);',
+
   fontSize: 14,
 
   fontPrimary: "'Avenir Book', arial, sans-serif",

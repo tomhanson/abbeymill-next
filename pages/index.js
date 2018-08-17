@@ -16,6 +16,7 @@ import {
   Icon,
   DownArrow,
   CallToAction,
+  ContentTile,
 } from '../components/index';
 
 import '../components/css/base.scss';
@@ -69,6 +70,7 @@ const HOME_QUERY: string = gql`
         }
         sliderProperties {
           title
+          address
           mainPhoto(size: propertyTileSm) {
             url
             width
@@ -107,7 +109,7 @@ class Index extends Component<EmptyProps, State> {
             } = data.pages;
 
             return (
-              <div>
+              <main>
                 <Banner img={bannerImage.url}>
                   <Flex align="center" justify="center">
                     <Container>
@@ -133,7 +135,6 @@ class Index extends Component<EmptyProps, State> {
                   </Flex>
                   <DownArrow id="js-home-scroll" className="down-arrow">
                     <Icon src="/static/assets/down-arrow.svg" alt="Scroll Down" maxWidth={40} />
-                    {/* <img src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/icons/down-arrow.svg" alt="Scroll Down"> */}
                   </DownArrow>
                 </Banner>
                 <Section paddingTop={65} paddingBottom={65}>
@@ -149,24 +150,17 @@ class Index extends Component<EmptyProps, State> {
                   <Container>
                     <Row>
                       <Column xs={12}>
-                        <ul className="home-slider">
-                          slider
-                          <Slider {...this.settings}>
-                            {sliderProperties.map(({ mainPhoto, title }) => (
-                              <img
-                                key={mainPhoto.url}
-                                src={mainPhoto.url}
-                                alt={title}
-                                height={mainPhoto.height}
-                                width={mainPhoto.width}
-                              />
-                            ))}
-                          </Slider>
-                          <li>
-                            {/* <?php get_template_part('templates/content', 'tile-primary'); ?> */}
-                          </li>
-                          {/* <?php wp_reset_postdata(); endwhile; ?> */}
-                        </ul>
+                        <Slider {...this.settings}>
+                          {sliderProperties.map(({ mainPhoto, title, address }) => (
+                            <ContentTile
+                              key={title}
+                              title={title}
+                              subtitle={address}
+                              image={mainPhoto}
+                            />
+                          ))}
+                        </Slider>
+
                         <div className="text-center | spacing-md--top-only spacing-lg--btm-only">
                           <a href="/our-properties" className="btn btn--primary">
                             View all properties
@@ -181,7 +175,7 @@ class Index extends Component<EmptyProps, State> {
                   headline={bottomContentHeadline}
                   subHeadline={bottomContentSubheadline}
                 />
-              </div>
+              </main>
             );
           }}
         </Query>

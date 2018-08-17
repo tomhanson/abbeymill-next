@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/tom/.nvm/versions/node/v8.9.4/bin/node /Users/tom/.nvm/versions/node/v8.9.4/bin/yarn dev
+  /Users/tom/.nvm/versions/node/v8.9.4/bin/node /Users/tom/.nvm/versions/node/v8.9.4/bin/yarn test -=-watch
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tom/.nvm/versions/node/v8.9.4/bin
@@ -7715,7 +7715,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c next
+  Arguments: -c NODE_ENV=test jest -=-watch
   Directory: /Users/tom/Desktop/repos/abbeymill-next
   Output:
   

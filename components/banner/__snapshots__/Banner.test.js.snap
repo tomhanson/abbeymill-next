@@ -10,31 +10,27 @@ Object {
         
         
 /* sc-component-id: sc-bdVaJa */
-.sc-bdVaJa {} .ixlWdJ{background-size:cover;background-repeat:no-repeat;background-image:url('');position:relative;background-position:50%;height:95vh;max-height:670px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;} .ixlWdJ:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(74,74,74,.4);}
+.sc-bdVaJa {} .hzSnTR{background-size:cover;background-repeat:no-repeat;background-image:url('testurl');position:relative;background-position:50%;height:95vh;max-height:670px;text-align:center;padding-top:114px;padding-top:11.4rem;} @media (max-width:767px){.hzSnTR{padding-top:84px;padding-top:8.4rem;}} .hzSnTR:before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(74,74,74,.4);}
         
 /* sc-component-id: sc-bwzfXH */
-.sc-bwzfXH {} .gJIwTT{text-align:center;}
+
       </style>
     </head>
     <body>
       <div>
         <section
-          class="sc-bdVaJa ixlWdJ"
+          class="sc-bdVaJa hzSnTR"
         >
-          <div
-            class="sc-bwzfXH gJIwTT"
-          />
+          <div />
         </section>
       </div>
     </body>
   </html>,
   "container": <div>
     <section
-      class="sc-bdVaJa ixlWdJ"
+      class="sc-bdVaJa hzSnTR"
     >
-      <div
-        class="sc-bwzfXH gJIwTT"
-      />
+      <div />
     </section>
   </div>,
   "debug": [Function],

@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CallToAction component the component loads correctly 1`] = `
+Object {
+  "baseElement": <html>
+    <head>
+      <style
+        data-styled-components=""
+      >
+        
+        
+/* sc-component-id: sc-bdVaJa */
+
+        
+/* sc-component-id: sc-bwzfXH */
+
+        
+/* sc-component-id: sc-htpNat */
+
+        
+/* sc-component-id: sc-bxivhb */
+.sc-bxivhb {} .jiujNf{display:inline-block;margin-bottom:0;font-weight:400;text-align:center;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;line-height:1.428571429 !important;border-radius:4px;background-image:none;border:1px solid transparent;white-space:nowrap;-webkit-text-decoration:none;text-decoration:none;font-size:14px;padding:10px;padding:1rem;color:#ffffff;-webkit-appearance:none;border:1px solid transparent;background-color:#408353;-webkit-transition:0.3s background-color;transition:0.3s background-color;} .jiujNf:hover,.jiujNf:active,.jiujNf:focus{background-color:darken($brand-four,10%);color:#ffffff;}
+        
+/* sc-component-id: sc-ifAKCX */
+.sc-ifAKCX {} .bGJWuW{margin-left:auto;margin-right:auto;padding-left:15px;padding-left:1.5rem;padding-right:15px;padding-right:1.5rem;} @media (min-width:768px){.bGJWuW{width:750px;}} @media (min-width:992px){.bGJWuW{width:970px;}} @media (min-width:1200px){.bGJWuW{width:1170px;}} .bGJWuW:before{content:' ';display:table;} .bGJWuW:after{content:' ';display:table;clear:both;}
+        
+/* sc-component-id: sc-EHOje */
+.sc-EHOje {} .gTgcCA{margin-left:-15px;margin-left:-1.5rem;margin-right:-15px;margin-right:-1.5rem;} .gTgcCA:before{content:' ';display:table;} .gTgcCA:after{content:' ';display:table;clear:both;}
+        
+/* sc-component-id: sc-bZQynM */
+.sc-bZQynM {} .bwYsQT{padding-left:15px;padding-left:1.5rem;padding-right:15px;padding-right:1.5rem;min-height:1px;} @media (min-width:992px){.bwYsQT{width:50%;}}.hKeiur{padding-left:15px;padding-left:1.5rem;padding-right:15px;padding-right:1.5rem;min-height:1px;} @media (min-width:992px){.hKeiur{width:50%;}} @media (min-width:992px){.hKeiur{margin-left:50%;}} @media (min-width:1200px){.hKeiur{width:41.666667%;}} @media (min-width:1200px){.hKeiur{margin-left:58.333333%;}}
+        
+/* sc-component-id: sc-gzVnrw */
+
+        
+/* sc-component-id: sc-htoDjs */
+
+        
+/* sc-component-id: sc-dnqmqq */
+
+        
+/* sc-component-id: sc-iwsKbI */
+
+        
+/* sc-component-id: sc-gZMcBi */
+
+        
+/* sc-component-id: sc-gqjmRU */
+
+        
+/* sc-component-id: sc-VigVT */
+
+        
+/* sc-component-id: sc-jTzLTM */
+
+        
+/* sc-component-id: sc-fjdhpX */
+.sc-fjdhpX {} .grxvbb{margin-bottom:15px;margin-bottom:1.5rem;}
+        
+/* sc-component-id: sc-jzJRlG */
+.sc-jzJRlG {} .gVRrgs{font-size:16px;font-size:1.6rem;line-height:1.500;margin-bottom:15px;margin-bottom:1.5rem;color :#ffffff;} @media (max - width:767px){.gVRrgs{font-size:16px;font-size:1.6rem;line-height:1.500;}}
+        
+/* sc-component-id: sc-cSHVUG */
+
+        
+/* sc-component-id: sc-kAzzGY */
+
+        
+/* sc-component-id: sc-global-2902729762 */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,picture{margin:0;padding:0;border:0;vertical-align:baseline;} *{box-sizing:border-box;} article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,picture{display:block;} body{line-height:1;} ol,ul{list-style:none;} blockquote,q{quotes:none;} blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;} table{border-collapse:collapse;border-spacing:0;} html{font-family:'Avenir Book',arial,sans-serif;font-weight:300;font-size:62.5%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;} @include font-size(14,18);body{font-size:14px;line-height:18px;font-weight:300;color:#4a4a4a;} a{color:#4a4a4a;cursor:pointer;} a:hover,a:focus,a:active{color:#4a4a4a;}
+        
+/* sc-component-id: sc-chPdSV */
+
+        
+/* sc-component-id: sc-kgoBCf */
+
+        
+/* sc-component-id: sc-kGXeez */
+
+        
+/* sc-component-id: sc-kpOJdX */
+
+        
+/* sc-component-id: sc-dxgOiQ */
+
+        
+/* sc-component-id: sc-ckVGcZ */
+
+        
+/* sc-component-id: sc-jKJlTe */
+
+        
+/* sc-component-id: sc-eNQAEJ */
+
+        
+/* sc-component-id: sc-hMqMXs */
+.sc-hMqMXs {} .fytfrR{overflow:hidden;position:relative;background-color:#afaf95;}
+        
+/* sc-component-id: sc-kEYyzF */
+.sc-kEYyzF {} .ipjPmt{padding-top:65px;padding-top:6.5rem;padding-bottom:65px;padding-bottom:6.5rem;} @media (max-width:991px){.ipjPmt{padding-top:20px;padding-top:2rem;padding-bottom:20px;padding-bottom:2rem;}}
+        
+/* sc-component-id: sc-kkGfuU */
+.sc-kkGfuU {} .buUxGE{background-image:url('testurl');background-size:cover;background-position:center;} @media (min-width:992px){.buUxGE{padding:0;position:absolute;top:0;left:0;bottom:0;width:50%;padding-top:0;}} @media (max-width:767px){.buUxGE{height:200px;}}
+      </style>
+    </head>
+    <body>
+      <div>
+        <div
+          class="sc-hMqMXs fytfrR"
+        >
+          <div
+            class="max-width-wrapper"
+          >
+            <div
+              class="sc-ifAKCX bGJWuW"
+            >
+              <div
+                class="sc-EHOje gTgcCA"
+              >
+                <div
+                  class="sc-bZQynM bwYsQT"
+                >
+                  <div
+                    class="sc-kkGfuU buUxGE"
+                  />
+                </div>
+                <div
+                  class="sc-bZQynM hKeiur"
+                >
+                  <div
+                    class="sc-kEYyzF ipjPmt"
+                  >
+                    <h2
+                      class="sc-fjdhpX grxvbb"
+                    >
+                      test headline
+                    </h2>
+                    <h5
+                      class="sc-jzJRlG gVRrgs"
+                    >
+                      test subheadline
+                    </h5>
+                    <a
+                      class="sc-bxivhb jiujNf"
+                      href="/about-us"
+                    >
+                      Read our story
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>,
+  "container": <div>
+    <div
+      class="sc-hMqMXs fytfrR"
+    >
+      <div
+        class="max-width-wrapper"
+      >
+        <div
+          class="sc-ifAKCX bGJWuW"
+        >
+          <div
+            class="sc-EHOje gTgcCA"
+          >
+            <div
+              class="sc-bZQynM bwYsQT"
+            >
+              <div
+                class="sc-kkGfuU buUxGE"
+              />
+            </div>
+            <div
+              class="sc-bZQynM hKeiur"
+            >
+              <div
+                class="sc-kEYyzF ipjPmt"
+              >
+                <h2
+                  class="sc-fjdhpX grxvbb"
+                >
+                  test headline
+                </h2>
+                <h5
+                  class="sc-jzJRlG gVRrgs"
+                >
+                  test subheadline
+                </h5>
+                <a
+                  class="sc-bxivhb jiujNf"
+                  href="/about-us"
+                >
+                  Read our story
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
