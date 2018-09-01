@@ -87,6 +87,7 @@ class Index extends Component<EmptyProps, State> {
     centerMode: true,
     centerPadding: '50px',
     slidesToShow: 1,
+    // infinite: true,
   };
   test() {
     console.log(this);

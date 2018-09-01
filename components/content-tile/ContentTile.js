@@ -16,7 +16,7 @@ function ContentTile({ title, subtitle, image }: Props) {
   return (
     <StyledContentTile>
       <figure>
-        <Image src={image.url} alt={title} />
+        <Image width={image.width} height={image.height} src={image.url} alt={title} />
       </figure>
       <Content>
         <h3 className="spacing-xs--btm-only">{title}</h3>
