@@ -1,13 +1,16 @@
-import Header from './header/Header';
+import { Header, Footer } from './';
+import './css/base.scss';
 
 type Props = {
   children: string,
+  primary: boolean,
 };
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children, primary }: Props) => (
   <div>
-    <Header />
+    <Header primary={primary} />
     {children}
+    <Footer />
   </div>
 );
 

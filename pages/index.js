@@ -17,9 +17,8 @@ import {
   DownArrow,
   CallToAction,
   ContentTile,
+  Button,
 } from '../components/index';
-
-import '../components/css/base.scss';
 
 type homeProps = {
   homeBannerImage: string,
@@ -87,14 +86,14 @@ class Index extends Component<EmptyProps, State> {
     centerMode: true,
     centerPadding: '50px',
     slidesToShow: 1,
-    // infinite: true,
+    infinite: true,
   };
   test() {
     console.log(this);
   }
   render() {
     return (
-      <Layout>
+      <Layout primary>
         <Query query={HOME_QUERY}>
           {({ loading, error, data }: Props) => {
             if (loading) return 'Loading...';
@@ -161,12 +160,11 @@ class Index extends Component<EmptyProps, State> {
                             />
                           ))}
                         </Slider>
-
-                        <div className="text-center | spacing-md--top-only spacing-lg--btm-only">
-                          <a href="/our-properties" className="btn btn--primary">
+                        <Spacer centre paddingTop={40} paddingBottom={65}>
+                          <Button primary href="/our-properties">
                             View all properties
-                          </a>
-                        </div>
+                          </Button>
+                        </Spacer>
                       </Column>
                     </Row>
                   </Container>

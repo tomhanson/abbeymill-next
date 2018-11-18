@@ -7,11 +7,16 @@ type Props = {
   children: React.Node,
   paddingTop: number,
   paddingBottom: number,
+  headerPadding: boolean,
 };
 
-function Section({ children, paddingTop = 0, paddingBottom = 0 }: Props) {
+function Section({ children, headerPadding, paddingTop = 0, paddingBottom = 0 }: Props) {
   return (
-    <SectionStyled paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <SectionStyled
+      headerPadding={headerPadding}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+    >
       {children}
     </SectionStyled>
   );

@@ -132,6 +132,8 @@ $lg-screen: 1024px;
     url('/static/fonts/avenir/20577853-40a7-4ada-a3fb-dd6e9392f401.svg#20577853-40a7-4ada-a3fb-dd6e9392f401') format('svg');
 }
 
+
+
 html {
   font-family: $font-primary;
   font-weight: $font-light;
@@ -240,6 +242,7 @@ a {
   &:focus,
   &:active {
     color: $font-color-primary;
+    // text-decoration: underline;
   }
 }
 
@@ -265,4 +268,11 @@ a {
 	}
 }
 
-@import '_slick'
+.test {
+  width: 100% !important;
+  background-color: red;
+  height: 300px;
+  border: 1px solid black;
+}
+
+@import '_slick';

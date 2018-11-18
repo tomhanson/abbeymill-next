@@ -47,6 +47,7 @@ export const Row = styled.div`
 
 // col - xs, sm, md, lg (1-12)
 export const Column = styled.div`
+${props => (props.textCenter ? `text-align: center;` : null)}
   ${addRem('padding-left', 15)};
   ${addRem('padding-right', 15)};
 
@@ -60,6 +61,7 @@ export const Column = styled.div`
     props.sm
       ? `
         @media (min-width: 768px) {
+          float: left;
           width: ${gridWidthHelper(props.sm)}
         }`
       : null} 
@@ -88,6 +90,7 @@ export const Column = styled.div`
     props.md
       ? `
         @media (min-width: 992px) {
+          float: left;
           width: ${gridWidthHelper(props.md)}
         }`
       : null}
@@ -116,6 +119,7 @@ export const Column = styled.div`
     props.lg
       ? `
           @media (min-width: 1200px) {
+            float: left;
             width: ${gridWidthHelper(props.lg)}
           }`
       : null}

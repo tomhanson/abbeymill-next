@@ -1,16 +1,28 @@
-import { injectGlobal } from 'styled-components';
-import Link from 'next/link';
-// import {  } from 'styled-bootstrap-components';
 // @flow strict
 import * as React from 'react';
-import { Container, Row, Column } from '../grid/Grid.styles';
-import { HeaderPrimary, HeaderScrolled, Nav, NavBtn, NavCloseBtn } from './Header.styles';
+import { injectGlobal } from 'styled-components';
+import Link from 'next/link';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+import { HeaderPrimary, HeaderScrolled, Nav, NavBtn, NavCloseBtn, NavLink } from './Header.styles';
 import Flex from '../helpers/Flex.styles';
 import { H5 } from '../global/Global.styles';
-import SearchForm from '../searchForm/SearchForm';
+import { Container, Row, Column, SearchForm } from '../';
 import theme from '../global/ThemeVariables';
 
-type Props = {||};
+const NAVIGATION_QUERY: string = gql`
+  query navigation {
+    navigation(navLocation: PRIMARY_NAVIGATION) {
+      id
+      title
+      url
+    }
+  }
+`;
+
+type Props = {|
+  primary: boolean,
+|};
 
 type State = {
   navOpen: boolean,
@@ -22,15 +34,15 @@ class Header extends React.Component<Props, State> {
     this.state = {
       navOpen: false,
     };
-    this.toggleNav = this.toggleNav.bind(this);
   }
-  toggleNav() {
+  toggleNav = () => {
     this.setState({
       navOpen: !this.state.navOpen,
     });
-  }
+  };
   render() {
     const { navOpen } = this.state;
+    const { primary } = this.props;
     return (
       <div>
         <HeaderPrimary>
@@ -39,42 +51,46 @@ class Header extends React.Component<Props, State> {
               <Flex align="center">
                 <Column xs={4}>
                   <NavBtn onClick={this.toggleNav}>
-                    <H5 secondary>Menu</H5>
+                    {primary ? <H5 secondary>Menu</H5> : <H5>Menu</H5>}
                   </NavBtn>
-                  {navOpen ? (
-                    <Nav>
-                      <NavCloseBtn onClick={this.toggleNav}>X</NavCloseBtn>
-                      <div>
-                        <Link href="/">
-                          <a>Home</a>
-                        </Link>
-                        <Link href="/about-us">
-                          <a>About us</a>
-                        </Link>
-                        <Link href="/portfolio">
-                          <a>Portfolio</a>
-                        </Link>
-                        <Link href="/properties">
-                          <a>Properties</a>
-                        </Link>
-                        <Link href="/developments">
-                          <a>Developments</a>
-                        </Link>
-                        <Link href="/contact-us">
-                          <a>Contact</a>
-                        </Link>
-                      </div>
-                    </Nav>
-                  ) : null}
+                  <Query query={NAVIGATION_QUERY}>
+                    {({ loading, error, data }: Props) => {
+                      if (loading) return 'Loading...';
+                      if (error) return `Error! ${error.message}`;
+                      const { navigation } = data;
+
+                      return navOpen ? (
+                        <Nav>
+                          <NavCloseBtn onClick={this.toggleNav}>X</NavCloseBtn>
+                          <div>
+                            {navigation.map(item => (
+                              <Link key={item.id} href={item.url} passHref>
+                                <NavLink>{item.title}</NavLink>
+                              </Link>
+                            ))}
+                          </div>
+                        </Nav>
+                      ) : null;
+                    }}
+                  </Query>
                 </Column>
                 <Column xs={4}>
                   <a href="/">
                     <Flex align="center" justify="center">
-                      <img
-                        style={{ maxWidth: '120px' }}
-                        src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/abbeymill-logo-white.png"
-                        alt="test"
-                      />
+                      {primary ? (
+                        <img
+                          style={{ maxWidth: '120px' }}
+                          src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/abbeymill-logo-white.png"
+                          alt="test"
+                        />
+                      ) : (
+                        <img
+                          style={{ maxWidth: '120px' }}
+                          src="https://abbeymillhomes.co.uk/wp-content/themes/abbeymill-v2/assets/images/abbeymill-logo-black.png"
+                          alt="test"
+                        />
+                      )}
+
                       {/*
                   <img style="max-width: 54px;" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-lg.png" alt="<?php bloginfo('name'); ?>">
                   <img style="max-width: 54px;" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-dark.png" alt="<?php bloginfo('name'); ?>">
@@ -83,7 +99,7 @@ class Header extends React.Component<Props, State> {
                   </a>
                 </Column>
                 <Column xs={4}>
-                  <SearchForm />
+                  <SearchForm alt={primary} primary />
                 </Column>
               </Flex>
             </Row>

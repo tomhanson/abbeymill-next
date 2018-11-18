@@ -17,9 +17,10 @@ type ApollClientProps = {
   cache: InMemoryCache,
 };
 
-const httpLink = new HttpLink(
-  ({ uri: 'https://graphql-server-nhvrqholbh.now.sh/', fetch }: Object)
-);
+const devEnv = 'http://localhost:4000/graphql';
+const prodEnv = 'https://graphql-server-nhvrqholbh.now.sh/';
+
+const httpLink = new HttpLink(({ uri: devEnv, fetch }: Object));
 
 const client = new ApolloClient(
   ({
