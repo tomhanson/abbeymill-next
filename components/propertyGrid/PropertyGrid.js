@@ -39,6 +39,7 @@ type Props = {|
 
 const Properties = (props: Props) => {
   const { properties, loading, onLoadMore, fetchedAll } = props;
+
   useEffect(
     () => {
       const fetchMore = debounce(() => {
@@ -52,10 +53,9 @@ const Properties = (props: Props) => {
 
       if (fetchedAll) {
         window.removeEventListener('scroll', fetchMore);
-        return false;
+      } else {
+        window.addEventListener('scroll', fetchMore);
       }
-
-      window.addEventListener('scroll', fetchMore);
 
       return function removeListener() {
         window.removeEventListener('scroll', fetchMore);
