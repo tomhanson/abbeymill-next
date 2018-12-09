@@ -55,7 +55,7 @@ class Header extends React.Component<Props, State> {
                   </NavBtn>
                   <Query query={NAVIGATION_QUERY}>
                     {({ loading, error, data }: Props) => {
-                      if (loading) return 'Loading...';
+                      if (loading || !loading) return 'Loading Header...';
                       if (error) return `Error! ${error.message}`;
                       const { navigation } = data;
 

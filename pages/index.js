@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import Slider from 'react-slick';
 import gql from 'graphql-tag';
+import styled, { type ReactStyledComponent } from 'styled-components';
 import Layout from '../components/Layout';
-
 import { H1 } from '../components/global/Global.styles';
 import Flex from '../components/helpers/Flex.styles';
 import {
@@ -19,6 +19,10 @@ import {
   ContentTile,
   Button,
 } from '../components/index';
+
+const HeaderLoadingHeight: ReactStyledComponent = styled.div`
+  height: 100vh;
+`;
 
 type homeProps = {
   homeBannerImage: string,
@@ -96,7 +100,14 @@ class Index extends Component<EmptyProps, State> {
       <Layout primary>
         <Query query={HOME_QUERY}>
           {({ loading, error, data }: Props) => {
-            if (loading) return 'Loading...';
+            if (loading)
+              return (
+                <HeaderLoadingHeight>
+                  <Flex align="center" justify="center">
+                    Loading Homepage...
+                  </Flex>
+                </HeaderLoadingHeight>
+              );
             if (error) return `Error! ${error.message}`;
             const {
               bannerImage,
