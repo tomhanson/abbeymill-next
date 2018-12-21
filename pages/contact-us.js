@@ -15,9 +15,21 @@ class contactUs extends React.Component<Props> {
       data,
     };
   };
+  test = e => {
+    console.log(e.value);
+    e.preventDefault();
+  };
   render() {
     console.log(this.props.data);
-    return <Layout>contact</Layout>;
+    return (
+      <Layout>
+        <main style={{ paddingTop: 100 }}>
+          <form onSubmit={this.test}>
+            <input type="text" />
+          </form>
+        </main>
+      </Layout>
+    );
   }
 }
 

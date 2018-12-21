@@ -8,9 +8,10 @@ export const HeaderPrimary: ReactStyledComponent = styled.header`
   left: 0;
   width: 100%;
   height: 114px;
-  z-index: 10;
+  z-index: 999;
   padding: 30px;
 `;
+
 export const HeaderScrolled: ReactStyledComponent = styled.div`
   position: fixed;
   background-color: #fff;
